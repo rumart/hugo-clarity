@@ -1,0 +1,12 @@
+{{ $related := .Site.RegularPages.RelatedIndices . | default 5 ( first .Site.Params.relatedItemsCount ) }}  
+  {{ with $related }}
+  <div class="related">
+    <br />
+    <h4>Related Posts</h4>
+    <ul>
+        {{ range . }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a> — <small>{{ .PublishDate.Format "January 2, 2006" }}</small></li>
+        {{ end }}
+    </ul>
+  </div>
+{{ end }}
