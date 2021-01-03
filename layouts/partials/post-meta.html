@@ -4,6 +4,11 @@
     <span class="post_date">
       {{ .Date.Format (default "Jan 2, 2006" $.Site.Params.dateFormat) -}}
     </span>
+    {{- if ne .Date .Lastmod }}
+	<span class="post_date_lastmod">
+		(Last modified: {{ .Lastmod.Format (default "Jan 2, 2006" $.Site.Params.dateFormat) -}}
+	)</span>
+	{{- end -}}
   {{- end }}
   {{- with .Params.tags -}}
     {{- range . }}
