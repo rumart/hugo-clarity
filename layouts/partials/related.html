@@ -1,4 +1,4 @@
-{{ $related := .Site.RegularPages.RelatedIndices . | default 5 ( first .Site.Params.relatedItemsCount ) }}  
+{{ $related := .Site.RegularPages.RelatedIndices . | first ( .Site.Params.numberOfRelatedItems | default 5 ) }}  
   {{ with $related }}
   <div class="related">
     <br />
