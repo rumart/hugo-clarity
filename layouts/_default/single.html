@@ -23,6 +23,9 @@
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
       {{ partial "comments" . }}
     {{ end }}
+    {{ if and ( .Site.Params.relatedItems true ) ( ne .Params.relatedItems false ) }}
+      {{ partial "related" . }}
+    {{ end }}
     {{- partial "i18nlist" . }}
   </article>
   {{- partial "sidebar" . }}
