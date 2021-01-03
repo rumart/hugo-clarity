@@ -20,6 +20,9 @@
     {{ .TableOfContents }}
     {{ end }}
     {{- .Content }}
+    {{ if .GitInfo }}
+      {{ partial "post-gitinfo" . }}
+    {{ end }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
       {{ partial "comments" . }}
     {{ end }}
