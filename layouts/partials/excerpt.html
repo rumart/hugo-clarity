@@ -20,6 +20,8 @@
               {{ .Params.summary }}
             {{ else if .Params.abstract }}
               {{ .Params.abstract }}
+            {{ else if .Params.description }}
+              {{ .Params.description }}
             {{ else if .Summary }}
               {{ truncate 320 .Summary }}
             {{ end }}
