@@ -20,7 +20,7 @@
             {{- $summary = .Params.summary }}
           {{- else if .Params.abstract }}
             {{ $summary = .Params.abstract }}
-          {{- else if .Params.abstract }}
+          {{- else if .Params.description }}
             {{ $summary = .Params.description }}
           {{- end }}
           {{ if not ( strings.Contains $summary "<p>" ) }}
