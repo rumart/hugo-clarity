@@ -49,3 +49,24 @@ other = "Alle Serien"
 [overview]
 other = "Inhalt"
 
+[reading_time]
+other = "{{ .ReadingTime }} min lesen"
+
+[series_posts]
+other = "Beiträge in dieser Serie"
+
+# search
+[quick_links]
+  other = "Ergebnisse"
+[no_matches]
+  other = "Keine Ergebnisse gefunden"
+[search_field_placeholder]
+  other = "Wissensdatenbank durchsuchen"
+[blog_search_field_placeholder]
+  other = "Suchen..."
+[search_results_label]
+  other = "Suchergebnisse"
+[short_search_query]
+  other = "Abfrage ist zu kurz"
+[type_to_search]
+  other = "Zum Suchen eingeben"

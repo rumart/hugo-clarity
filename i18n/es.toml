@@ -47,4 +47,26 @@ other = "Todos los Tags"
 other = "Todas las Series"
 
 [overview]
-other = "Resumen"
+other = "Contenido"
+
+[reading_time]
+other = "{{ .ReadingTime }} min read"
+
+[series_posts]
+other = "Publicaciones en esta serie"
+
+# search
+[quick_links]
+  other = "Resultados"
+[no_matches]
+  other = "No se encontraron resultados"
+[search_field_placeholder]
+  other = "Buscar en la base de conocimiento"
+[blog_search_field_placeholder]
+  other = "Buscar..."
+[search_results_label]
+  other = "Resultados de búsqueda"
+[short_search_query]
+  other = "La consulta es demasiado corta"
+[type_to_search]
+  other = "Escriba para buscar"

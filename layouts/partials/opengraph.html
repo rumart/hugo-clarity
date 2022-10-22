@@ -1,6 +1,16 @@
 {{- $summary := truncate 160 .Summary }}
 {{- $s := .Site.Params }}
 {{- $p := .Params }}
+
+{{- $relpath := "" -}}
+{{- if or $s.usePageBundles $p.usePageBundles }}
+  {{- $relpath = .Page.RelPermalink -}}
+{{- end }}
+
+{{ if eq $p.usePageBundles false }}
+  {{- $relpath = "" }}
+{{ end }}
+
 {{- with $p.description }}
   {{- $summary = truncate 160 . }}
 {{- end }}
@@ -20,13 +30,16 @@
 {{- end }}
 {{- $image := absURL $s.fallBackOgImage }}
 {{- with $p.featureImage }}
-  {{- $image = absURL .  }}
+  {{- $fullpath := ( add $relpath . ) -}}
+  {{- $image = absURL $fullpath  }}
 {{- end }}
 {{- with $p.thumbnail }}
-  {{- $image = absURL .  }}
+  {{- $fullpath := ( add $relpath . ) -}}
+  {{- $image = absURL $fullpath  }}
 {{- end }}
 {{- with $p.shareImage }}
-  {{- $image = absURL .  }}
+  {{- $fullpath := ( add $relpath . ) -}}
+  {{- $image = absURL $fullpath  }}
 {{- end }}
 <meta property="og:locale" content="{{ .Lang }}" />
 {{ range .Translations }}
@@ -37,14 +50,25 @@
 {{- else }}
 <meta property="og:type" content="article">
 {{- end }}
-<meta name="description" content="{{ $summary }}">
+<meta name="description" content="{{ $summary }}" />
 <meta name="twitter:card" content="{{ if $s.largeTwitterCard }}summary_large_image{{ else }}summary{{ end }}" />
 <meta name="twitter:creator" content="{{ $s.twitter }}">
 <meta name="twitter:title" content="{{ .Title }}" />
+<meta name="twitter:image" content="{{ $image }}"/>
 <meta property="og:url" content="{{ $permalink }}" />
 <meta property="og:title" content="{{ $title }}" />
 <meta property="og:description" content="{{ $summary }}" />
 <meta property="og:image" content="{{ $image }}" />
+{{- $keywords := "" }}
+{{- with $s.keywords }}
+  {{- $keywords = delimit $s.keywords "," }}
+{{- end }}
+{{- with $p.keywords }}
+  {{- $keywords = delimit . "," }}
+{{- end }}
+{{- with $keywords }}
+  <meta name="keywords" content="{{ $keywords }}" />
+{{- end }}
 {{- if eq .Section $s.blogDir -}}
   {{- $date := ( .Date.Format "2006-02-01") -}}
   {{- $date := (time .Date) }}

@@ -2,19 +2,19 @@
 
 A technology-minded theme for Hugo based on VMware's open-source [Clarity Design System](https://clarity.design/) featuring rich code support, dark/light mode, mobile support, and much more. See [a live demo at __neonmirrors.net__](https://neonmirrors.net/).
 
-![Clarity Hugo Theme](https://github.com/chipzoller/hugo-clarity/blob/master/images/screenshot.png)
+![Clarity Hugo Theme](https://raw.githubusercontent.com/chipzoller/hugo-clarity/master/images/screenshot.png)
 
 ## Preview on Desktop
 
-| Light Mode | Dark Mode |
-|---| --- |
-| ![Clarity Hugo Theme desktop light](https://github.com/chipzoller/hugo-clarity/blob/master/images/screenshot.png) | ![Clarity Hugo Theme desktop dark](https://github.com/chipzoller/hugo-clarity/blob/master/images/screenshot-darkmode.png) |
+| Light Mode                                                                                                        | Dark Mode                                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| ![Clarity Hugo Theme desktop light](https://raw.githubusercontent.com/chipzoller/hugo-clarity/master/images/screenshot.png) | ![Clarity Hugo Theme desktop dark](https://raw.githubusercontent.com/chipzoller/hugo-clarity/master/images/screenshot-darkmode.png) |
 
 ## Preview on Mobile
 
-| Light Mode | Dark Mode |
-|---| --- |
-| ![Clarity Hugo Theme mobile light](https://github.com/chipzoller/hugo-clarity/blob/master/images/screenshot-mobile.png) | ![Clarity Hugo Theme mobile dark](https://github.com/chipzoller/hugo-clarity/blob/master/images/screenshot-mobile-darkmode.png) |
+| Light Mode                                                                                                              | Dark Mode                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| ![Clarity Hugo Theme mobile light](https://raw.githubusercontent.com/chipzoller/hugo-clarity/master/images/screenshot-mobile.png) | ![Clarity Hugo Theme mobile dark](https://raw.githubusercontent.com/chipzoller/hugo-clarity/master/images/screenshot-mobile-darkmode.png) |
 
 ## Table of Contents
 
@@ -32,69 +32,102 @@ A technology-minded theme for Hugo based on VMware's open-source [Clarity Design
   * [Mobile menu positioning](#mobile-menu-positioning)
   * [Tags and taxonomies](#tags-and-taxonomies)
   * [Images](#images)
+    * [Organizing page resources](#organizing-page-resources)
+    * [Modern image formats](#support-for-modern-image-formats)
+    * [Image captions](#image-captions)
+    * [Adding figure positions to image captions](#adding-figure-positions-to-image-captions)
+    * [Inline images](#inline-images)
+    * [Floating images](#float-images-to-the-left)
+    * [Round borders](#round-borders-for-images)
+    * [Adding CSS classes](#add-classes-to-images)
+    * [Featured image](#featured-image)
+    * [Thumbnail image](#thumbnail-image)
+    * [Share image](#share-image)
+    * [Logo alignment](#logo-alignment)
   * [Code](#code)
   * [Table of contents](#table-of-contents-1)
+  * [Pinning featured posts](#pinning-featured-posts)
+  * [Notices](#notices)
   * [Custom CSS and JS](#custom-css-and-js)
+  * [Custom Site Disclaimer](#site-disclaimer)
   * [Forcing light or dark mode](#forcing-light-or-dark-mode)
   * [Internationalization - I18N](#i18n)
   * [Hooks](#hooks)
   * [Comments](#comments)
   * [Math notation](#math-notation)
+  * [Open Street Map](#map)
+  * [Search](#search)
+* [Contributing](#contributing)
+* [Code of conduct](#code-of-conduct)
+* [License](#license)
 
 ## Features
 
 * Blog with tagging and category options
+
+* Search
+
 * Deeplinks
-* Native Image Lazy Loading
+
+* Choice of whether to use [Hugo Page Bundles](https://gohugo.io/content-management/page-bundles/)
+
+* Native image lazy-loading
+
 * Customizable (see config)
-* Dark Mode (with UI controls for user preference setting)
+
+* Dark mode (with UI controls for user preference setting)
+
 * Toggleable table of contents
-* Flexible image configuration
+
+* Toggleable automatic figure numbering
+
+* Configurable site disclaimer (i.e. "my views are not my employer's")
+
+* Flexible image configuration, and support for modern formats like WebP
+
 * Logo alignment
+
 * Mobile support with configurable menu alignment
-* Syntax Highlighting
+
+* Syntax highlighting
+
 * Rich code block functions including:
-    1. Copy to clipboard
-    2. Toggle line wrap (dynamic)
-    3. Toggle line numbers
-    4. Language label
-    5. Toggle block expansion/contraction (dynamic)
 
-    To put it all in context, here is a preview showing all functionality.
+  1. Copy to clipboard
 
-    ![code block functions](https://github.com/chipzoller/hugo-clarity/blob/master/images/syntax-block.gif)
+  2. Toggle line wrap (dynamic)
+
+  3. Toggle line numbers
+
+  4. Language label
+
+  5. Toggle block expansion/contraction (dynamic)
+
+     To put it all in context, here is a preview showing all functionality.
+
+     ![code block functions](https://github.com/chipzoller/hugo-clarity/blob/master/images/syntax-block.gif)
 
 ## Prerequisites
 
-Firstly, __ensure you have installed the [extended version of Hugo](https://github.com/gohugoio/hugo/releases)__. See installation steps from [Hugo's official docs](https://gohugo.io/getting-started/installing/).
+Firstly, __ensure you have installed the [extended version of Hugo 0.91.0 or above](https://github.com/gohugoio/hugo/releases)__. See installation steps from [Hugo's official docs](https://gohugo.io/getting-started/installing/) for more information. Note that software repositories may be several versions behind and may not include the extended version.
 
 ## Getting up and running
 
-Read the [prerequisites](#prerequisites) above and verify you're using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:
+Read the [prerequisites](#prerequisites) above and verify you're using the __extended version of Hugo 0.91.0 or newer__.
 
-### Option 1 (recommended)
+There are several ways to use this theme:
 
-Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:
+### Option 1a: Development in the browser
 
-```bash
-hugo new site yourSiteName
-cd yourSiteName
-git init
-git submodule add https://github.com/chipzoller/hugo-clarity themes/hugo-clarity
-cp -a themes/hugo-clarity/exampleSite/* .
-```
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/chipzoller/hugo-clarity)
 
-Then run
+For trying out the theme, quick experimentation, and to contribute Pull Requests, Gitpod is the easiest option. Use the button above and it will spin up a prebuilt environment with a site ready to go.
 
-```bash
-hugo server
-```
+If you want to contribute a PR, [this is a good overview of that process](https://jldec.me/using-gitpod-to-create-a-pr), and there's also an [optional browser extension](https://www.gitpod.io/docs/browser-extension). [Read more about contributing to Hugo Clarity](CONTRIBUTING.md)
 
-Hurray!
+### Option 1b: Development on your machine
 
-### Option 2 (Great for testing quickly)
-
-You can run your site directly from the `exampleSite`. To do so, use the following commands:
+If you prefer not to use Gitpod, you can also test, develop and contribute PRs locally from your computer.
 
 ```bash
 git clone https://github.com/chipzoller/hugo-clarity
@@ -102,35 +135,71 @@ cd hugo-clarity/exampleSite/
 hugo server --themesDir ../..
 ```
 
-> Although, option 2 is great for quick testing, it is somewhat problematic when you want to update your theme. You would need to be careful not to overwrite your changes.
+> Note that while this is a good way to work on Hugo Clarity, isn't a good way to work on your own site, since it uses the content from `exampleSite`, and wouldn't be aware of any overrides your site might apply to the theme.
 
-### Option 3 (The new, most fun & painless approach)
+[Read more about contributing to Hugo Clarity](CONTRIBUTING.md)
 
-This option enables you to load this theme as a hugo module. It arguably requires the least effort to run and maintain in your website.
+### Option 2: Hugo modules
 
-Ensure you have `go` binary [installed on your machine](https://golang.org/doc/install).
+This option arguably requires the least effort to run and maintain your website with the Hugo Clarity theme.
 
+We assume you've already run `hugo new site <sitename>` and are in the `<sitename>` directory.
+
+1. Ensure you have the `go` binary [installed on your machine](https://golang.org/doc/install). (Mac users: ```brew install go```.)
+
+2. Run the following command:
 ```bash
-git clone https://github.com/chipzoller/hugo-clarity.git clarity
-cd clarity/exampleSite/
-hugo mod init my-site
+hugo mod init <sitename>
 ```
 
-Open config.toml file in your code editor, replace `theme = "hugo-clarity"` with `theme = ["github.com/chipzoller/hugo-clarity"]` or just `theme = "github.com/chipzoller/hugo-clarity"`.
+3. Hugo Clarity comes with [`exampleSite` files](https://github.com/chipzoller/hugo-clarity/tree/master/exampleSite) prefilled with helpful configuration and sample posts. If you're starting a new Hugo site and don't have any content yet, it's easiest to grab the whole thing:
+```bash
+wget -O - https://github.com/chipzoller/hugo-clarity/archive/master.tar.gz | tar xz && cp -a hugo-clarity-master/exampleSite/* . && rm -rf hugo-clarity-master && rm -f config.toml
+```
+If you do already have a site and don't want to risk overwriting anything, we suggest copying the contents of [`config`](exampleSite/config/) over, as well as replacing your `archetypes/post.md` (if it exists) with [Hugo Clarity's](exampleSite/archetypes/post.md). Then migrate any necessary settings from `<sitename>/config.toml` to `<sitename>/config/_default/config.toml` and remove the original `<sitename>/config.toml` file.
 
-Hurray you can now run
+4. Open `<sitename>/config/_default/config.toml` and change `theme = "hugo-clarity"` to `theme = ["github.com/chipzoller/hugo-clarity"]`
 
-```yaml
+5. You can now run:
+```bash
 hugo server
 ```
 
-To pull in theme updates, run `hugo mod get -u ./...` from the theme folder. If unsure, [learn how to update hugo modules](https://gohugo.io/hugo-modules/use-modules/#update-modules)
+If that seems like a lot of setup, it's meant to reduce the pain of pulling in new versions of Hugo Clarity when they are released.
 
-> There [is more you could do with hugo modules](https://discourse.gohugo.io/t/hugo-modules-for-dummies/20758), but this will suffice for our use case here.
+To pull in theme updates, run `hugo mod get -u github.com/chipzoller/hugo-clarity`. You can also update all your Hugo modules with `hugo mod get -u ./...` -- [read more about updating Hugo modules](https://gohugo.io/hugo-modules/use-modules/#update-modules).
+
+> There is [more you can do with hugo modules](https://github.com/rootwork/hugo-module-site), but this will suffice for our use case here.
+
+### Option 3: Git submodules
+
+For those not ready to use Hugo modules, you can use the "old way" using git alone.
+
+We assume you've already run `hugo new site <sitename>`, are in the `<sitename>` directory, and have a working git repo (`git init`).
+
+1. Run:
+```bash
+git submodule add https://github.com/chipzoller/hugo-clarity themes/hugo-clarity
+```
+
+2. Hugo Clarity comes with [`exampleSite` files](https://github.com/chipzoller/hugo-clarity/tree/master/exampleSite) prefilled with helpful configuration and sample posts. If you're starting a new Hugo site and don't have any content yet, it's easiest to grab the whole thing:
+```bash
+cp -a themes/hugo-clarity/exampleSite/* . && rm -f config.toml
+```
+If you do already have a site and don't want to risk overwriting anything, we suggest copying the contents of [`config`](exampleSite/config/) over, as well as replacing your `archetypes/post.md` (if it exists) with [Hugo Clarity's](exampleSite/archetypes/post.md). Then migrate any necessary settings from `<sitename>/config.toml` to `<sitename>/config/_default/config.toml` and remove the original `<sitename>/config.toml` file.
+
+3. You can now run:
+```bash
+hugo server
+```
+
+While this is less setup than option 2 initially, it comes with important caveats. First, to pull in new versions of the theme, you'll need to run `git submodule update --remote --merge` _and commit those changes to your git repo_. Second, if you clone your repo to another machine, have multiple people working on your site, or have a continuous-integration or deployment script (like Netlify), after cloning you'll need to also remember to run `git submodule update --init --recursive` to get the theme files.
+
+See [an overview of using git submodules for Hugo themes](https://www.andrewhoog.com/post/git-submodule-for-hugo-themes/) and [troubleshooting git submodules in Hugo themes](https://study.impl.dev/hacking/git-submodule-hugo-theme/) for details.
 
 ## Configuration
 
-If set, jump over to the `config.toml` file and start [configuring](#configuration) your site.
+Hugo Clarity uses a config folder rather than a single file. If you're used to having a `config.toml` file in your main folder, now you'll find that located in `config/_default/config.toml`, along with other settings files.
 
 This section will mainly cover settings that are unique to this theme. If something is not covered here (or elsewhere in this file), there's a good chance it is covered in [this Hugo docs page](https://gohugo.io/getting-started/configuration/#configuration-file).
 
@@ -138,66 +207,89 @@ This section will mainly cover settings that are unique to this theme. If someth
 
 These options set global values that some pages or all pages in the site use by default.
 
-| Parameter | Value Type | Overridable on Page |
-|:---- | ---- | ---- |
-| author | string | no |
-| twitter | string | no |
-| largeTwitterCard | boolean | no |
-| ga_analytics | string | no |
-| baidu_analytics | string | no |
-| description | string | yes |
-| introDescription | string | no |
-| numberOfTagsShown | integer | no |
-| fallBackOgImage | file path (string) | no |
-| codeMaxLines | integer | yes |
-| codeLineNumbers | boolean | yes |
-| mainSections | array/string | no |
-| centerLogo | boolean | no |
-| logo | file path (string) | no |
-| mobileNavigation | string | no |
-| figurePositionShow | boolean | yes |
-| figurePositionLabel | string | no |
-| customCSS | array of file path (string) | no |
-| customJS | array of file path (string) | no |
-| enforceLightMode | boolean | N/A |
-| enforceDarkMode | boolean | N/A |
-| titleSeparator| string | no |
-| comment | boolean | no |
-| numberOfRecentPosts | integer | no |
-| numberOfFeaturedPosts | integer | no |
-| dateFormat | string | no |
-| enableMathNotation | boolean | yes |
-| customFonts | boolean | no |
-| since | integer | N/A |
-| rss_summary | boolean | N/A |
-| rss_summary_read_more_link | boolean | N/A |
-| footerLogo | string | N/A |
+| Parameter                  | Value Type                  | Overridable on Page |
+|:-------------------------- | --------------------------- | ------------------- |
+| author                     | map / string                | no                  |
+| twitter                    | string                      | no                  |
+| largeTwitterCard           | boolean                     | no                  |
+| ga_analytics               | string                      | no                  |
+| baidu_analytics            | string                      | no                  |
+| plausible_analytics        | boolean                     | no                  |
+| matomo_analytics           | boolean                     | no                  |
+| description                | string                      | yes                 |
+| keywords                   | array of strings            | yes                 |
+| introDescription           | string                      | yes                 |
+| introURL                   | string/false                | no                  |
+| numberOfTagsShown          | integer                     | no                  |
+| usePageBundles             | boolean                     | yes                 |
+| fallBackOgImage            | file path (string)          | no                  |
+| codeMaxLines               | integer                     | yes                 |
+| codeLineNumbers            | boolean                     | yes                 |
+| mainSections               | array/string                | no                  |
+| centerLogo                 | boolean                     | no                  |
+| logo                       | file path (string)          | no                  |
+| iconsDir                   | dir path (string)           | no                  |
+| mobileNavigation           | string                      | no                  |
+| figurePositionShow         | boolean                     | yes                 |
+| figurePositionLabel        | string                      | no                  |
+| customCSS                  | array of file path (string) | no                  |
+| customJS                   | array of file path (string) | no                  |
+| enforceLightMode           | boolean                     | N/A                 |
+| enforceDarkMode            | boolean                     | N/A                 |
+| titleSeparator             | string                      | no                  |
+| showShare                  | boolean                     | yes                 |
+| comments                   | boolean                     | yes                 |
+| numberOfRecentPosts        | integer                     | no                  |
+| numberOfFeaturedPosts      | integer                     | no                  |
+| pinFeatured                | boolean                     | no                  |
+| numberOfPinnedPosts        | integer                     | no                  |
+| dateFormat                 | string                      | no                  |
+| enableMathNotation         | boolean                     | yes                 |
+| customFonts                | boolean                     | no                  |
+| since                      | integer                     | N/A                 |
+| rss_summary                | boolean                     | N/A                 |
+| rss_summary_read_more_link | boolean                     | N/A                 |
+| showRelatedInArticle       | boolean                     | yes                 |
+| showRelatedInSidebar       | boolean                     | no                  |
+| footerLogo                 | string                      | N/A                 |
+| enableSearch               | boolean                     | N/A                 |
 
 ### Page Parameters
 
 These options can be set from a page [frontmatter](https://gohugo.io/content-management/front-matter#readout) or via [archetypes](https://gohugo.io/content-management/archetypes/#readout).
 
-| Parameter | Value Type | Overrides Global |
-|:---- | ---- | ---- |
-| title | string | N/A |
-| date | date | N/A |
-| description | string | N/A |
-| draft | boolean | N/A |
-| featured | boolean | N/A |
-| tags | array/string | N/A |
-| categories | array/string | N/A |
-| toc | boolean | N/A |
-| thumbnail | file path (string) | N/A |
-| featureImage | file path (string) | N/A |
-| shareImage | file path (string) | N/A |
-| codeMaxLines | integer | yes |
-| codeLineNumbers | boolean | yes |
-| figurePositionShow | boolean | yes |
-| figurePositionLabel | string | no |
-| comment | boolean | no |
-| enableMathNotation | boolean | yes |
-| showDate | boolean | N/A |
-| showShare | boolean | N/A |
+| Parameter            | Value Type         | Overrides Global |
+|:-------------------- | ------------------ | ---------------- |
+| title                | string             | N/A              |
+| date                 | date               | N/A              |
+| description          | string             | N/A              |
+| keywords             | array of strings   | yes              |
+| introDescription     | string             | yes              |
+| abstract             | string             | N/A              |
+| summary              | string             | N/A              |
+| draft                | boolean            | N/A              |
+| featured             | boolean            | N/A              |
+| tags                 | array/string       | N/A              |
+| categories           | array/string       | N/A              |
+| toc                  | boolean            | N/A              |
+| usePageBundles       | boolean            | yes              |
+| featureImage         | file path (string) | N/A              |
+| featureImageAlt      | string             | N/A              |
+| featureImageCap      | string             | N/A              |
+| thumbnail            | file path (string) | N/A              |
+| shareImage           | file path (string) | N/A              |
+| codeMaxLines         | integer            | yes              |
+| codeLineNumbers      | boolean            | yes              |
+| figurePositionShow   | boolean            | yes              |
+| figurePositionLabel  | string             | no               |
+| comments             | boolean            | yes              |
+| enableMathNotation   | boolean            | yes              |
+| showDate             | boolean            | N/A              |
+| showShare            | boolean            | N/A              |
+| showReadTime         | boolean            | N/A              |
+| sidebar              | boolean            | N/A              |
+| singleColumn         | boolean            | N/A              |
+| showRelatedInArticle | boolean            | N/A              |
 
 ### Modify Menus
 
@@ -219,12 +311,31 @@ If using Google Analytics, configure the `ga_analytics` global parameter in your
 
 If using Baidu Analytics, configure the `baidu_analytics` global parameter in your site with your ID.
 
+If using Plausible Analytics, configure the `plausible_analytics` global parameters in your site with the following.
+
+`enable` To enable plausible analytics change to `true`.
+
+`websiteDomain` Set domain name of your website, most cases same as your base URL this is required.
+
+`plausibleDomain`  Default is set to plausible.io, this parameter is only required if plausible is self-hosted.
+
+`scriptName`  Default is set to plausible, this parameter is only required if using a custom name for script.
+
+If using Matomo Analytics, configure the `matomo_analytics` global parameters in your site with the following.
+
+`enable` To enable matomo analytics change to `true`.
+
+`websiteDomain` Set the domain name of your website, in most cases same as your base URL this is required.
+
+`matomoDomain`   Set to Matomo domain
+
+`matomoSiteID`  Default is set to 1, change this to the siteid being tracked
+
 ### Blog directory
 
-Edit the `config.toml` file and change the `mainSections` key. Values will be directories where the blogs reside.
+Edit `params.toml` and change the `mainSections` key. Values will be directories where the blogs reside.
 
 ```yaml
-[params]
 ...
 mainSections = ["posts", "docs", "blogs"]
 ...
@@ -262,39 +373,82 @@ numberOfTagsShown = 14 # Applies for all other default & custom taxonomies. e.g 
 
 ### Images
 
-#### Image figure captions
+A number of CSS classes are automatically added to images based on their source or type to aid you in any tweaks to the theme. These include:
 
-You have the option of adding captions to images in blog posts and automatically prepending a desired string such as "Figure N" to the alt text. This is controlled via two global settings.
+- `image_figure` when the image appears inside a `<figure>` element
+- `image_internal` when the image is local, within the site
+- `image_external` when the image is loaded from a URL
+- `image_processed` when the image has been passed through [Hugo Pipes](https://gohugo.io/hugo-pipes/introduction/) (requires the image to be using page bundles or be in the `assets` directory)
+- `image_unprocessed` when the image has not been passed through Hugo Pipes
+- `image_thumbnail` when the image is in a list of content excerpts
+- `image_featured` when the image is a banner or hero image at the top of a post
+- `image_svg` when the image is an [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) (and thus [cannot be run through Hugo Pipes](https://github.com/gohugoio/hugo/issues/3700))
 
-`figurePositionLabel` is a string which will be prepended to any alt text of an article image. By default, this is set to "Figure." And `figurePositionShow` controls, globally, whether to show this label. It does not affect whether to show the image alt text, only the prefix figure caption. For more granular control, `figurePositionShow` can be overridden at the article level if desired.
+Most images in Hugo Clarity are loaded [lazy](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading#images_and_iframes) and [asynchronously](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding) to improve site speed. Images that are not loaded in this manner include the site's logo.
 
-The number will be automatically calculated and assigned after the `figurePositionLabel` text starting from the top of the article and counting down. Featured images will be excluded from this figuration.
+Images, whether used within Markdown content or using parameters like `featureImage` or `thumbnail`, can be local or remote images. Remote images (starting with `http...`) will automatically be downloaded, stored and optimized by Hugo Clarity, so that the finished site will only serve local images.
 
-#### Image figure captions example
+#### Organizing page resources
 
-In this example, `figurePositionLabel` is set to "Figure" in `config.toml` and this is the first image in a given article.
+By default, Hugo Clarity assumes that page resources -- images and other related files -- are stored in the `static` or `assets` directories. Alternatively, you can opt-in to using [Hugo page bundles](https://gohugo.io/content-management/page-bundles/) by setting the `usePageBundles` option to `true` in your site parameters. Using this method, you keep a post's assets in the same directory as the post itself.
+
+If you have an existing site that is not using page bundles but would like to start with new posts, `usePageBundles` can be overridden at the post level in the front matter. If it is not set in the post, it will default to the site's parameter. Take a look at [`exampleSite/content/post/bundle/index.md`](exampleSite/content/post/bundle/index.md) for more information and an example of overriding this setting on an individual post.
+
+#### Support for modern image formats
+
+If you are using page bundles (see above) and reference `sample.jpg` in your post, Hugo Clarity will check to see if the same image (based on filename) exists in the modern formats of [WebP](https://en.wikipedia.org/wiki/WebP), [AVIF](https://en.wikipedia.org/wiki/AVIF) or [JXL](https://en.wikipedia.org/wiki/JPEG_XL). If it does, these will be presented to browsers as alternative options. Browsers that [support these formats and the `<picture>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture#the_type_attribute) will load them, while browsers that do not will fall-back to the default image.
+
+Note that this does not *create* the other versions of the image for you, it simply checks to see if they exist. You may want to automate this process in your site build; [here is one example](https://github.com/rootwork/rootwork.org/blob/main/scripts/image_optimize.sh).
+
+#### Image captions
+
+Image captions are automatically generated. If an image has title text, the caption will be created from it; if an image has no title text, the alt text will be used. To display an image with alt text but no caption, use title text of a single space (`" "`).
+
+Examples of captions:
+
+- `![Jane Doe](../images/jane-doe.png)` will display the local `jane-doe.png` image with a caption of "Jane Doe".
+- `![Jane Doe](https://raw.githubusercontent.com/chipzoller/hugo-clarity/master/exampleSite/static/images/jane-doe.png "This is Jane Doe")` will display the remote image `jane-doe.png` with a caption of "This is Jane Doe".
+- `![A building](../images/building.png " ")` will display the local image `building.png` with no caption.
+
+Examples of this can also be found in the "Markdown Syntax Guide" post in the example site content.
+
+> NOTE: Due to limitations in Markdown, single and double quotes should not be used within alt or title text.
+
+#### Adding figure positions to image captions
+
+You have the option of prepending a desired string such as "Figure N" to the caption text of images within an article's content.
+
+Two global settings control this feature:
+
+- `figurePositionLabel` is a string which will be prepended to any caption text of an article image; by default this is set to "Figure".
+- `figurePositionShow` controls, globally, whether to show this label. (It does not affect the visibility of image captions in general, only the prepended figure position text.) For more granular control, `figurePositionShow` can be overridden at the article level if desired.
+
+Figure numbers will be automatically inserted after the `figurePositionLabel` text, starting from the top of the article and increasing as you move down.
+
+#### Example of image with figure positions added
+
+Assume that `figurePositionLabel` is set to "Figure" in `config.toml` and this is the first image in a given article.
 
 ```markdown
-![Antrea Kubernetes nodes prepared](./images/image-figure.png)
+![A schematic for using Antrea with Kubernetes](./images/image-figure.png "Antrea Kubernetes nodes prepared")
 ```
 
-![Here is my alt text for this image.](https://github.com/chipzoller/hugo-clarity/blob/master/images/image-figure.png)
-
-> NOTE: Alt text with double quotes will produce broken HTML per limitations with Markdown. It is recommended to omit any quotations from your alt text.
+![Figure captioning example](https://github.com/chipzoller/hugo-clarity/blob/master/images/image-figure.png)
 
 #### Inline images
 
-To make a blog image inline, append `:inline` to its alt text. Typically, inline images will have no alt text associated with them.
+To make an image inline, append `:inline` to its alt text.
 
 #### Inline images example
 
 ```markdown
-<!-- some image without alt text -->
+<!-- an inline image without alt text -->
+
 ![:inline](someImageUrl)
 
-<!-- some image with alt text -->
+<!-- an inline image with alt text -->
 
-![some alt text:inline](someOtherImageUrl)
+![text describing the image:inline](someOtherImageUrl)
 ```
 
 ![Inline image example](https://github.com/chipzoller/hugo-clarity/blob/master/images/image-inline.png)
@@ -306,12 +460,29 @@ To align a blog image to the left, append `:left` to its alt text. Article text 
 #### Float images left example
 
 ```markdown
-<!-- some image without alt text -->
+<!-- a left-floated image without alt text -->
+
 ![:left](someImageUrl)
 
-<!-- some image with alt text -->
+<!-- a left-floated image with alt text -->
 
-![some alt text:left](someOtherImageUrl)
+![text describing the image:left](someOtherImageUrl)
+```
+
+#### Float images to the right
+
+To align a blog image to the right, append `:right` to its alt text. Article text will then flow to the left of the image.
+
+#### Float images right example
+
+```markdown
+<!-- a right-floated image without alt text -->
+
+![:right](someImageUrl)
+
+<!-- a right-floated image with alt text -->
+
+![text describing the image:right](someOtherImageUrl)
 ```
 
 #### Round borders for images
@@ -323,48 +494,38 @@ is just another class and it can be mixed with other classes separated by space.
 #### Round borders for images example
 
 ```markdown
-<!-- some image without alt text and round borders-->
+<!-- an image without alt text and round borders-->
+
 ![::round](someImageUrl)
 
-<!-- some image with alt text and round borders-->
+<!-- an image with alt text and round borders-->
 
-![some alt text::round](someOtherImageUrl)
+![text describing the image::round](someOtherImageUrl)
 
-<!-- some left floating image with round borders-->
+<!-- a left-floating image without alt text and with round borders-->
 
 ![:left::round](someOtherImageUrl)
 ```
 
 #### Add classes to images
 
-To add a class image to the left, append `::<classname>` to its alt text. You can also add multiple classes to an image separated by space. `::<classname1> <classname2>`.
+To add a CSS class to an image, append `::<classname>` to its alt text. You can also add multiple classes to an image separated by space. `::<classname1> <classname2>`.
 
-#### Image class example
+#### Image classes example
 
 ```markdown
-<!-- some image without alt text -->
+<!-- an image without alt text -->
+
 ![::img-medium](someImageUrl)
 
-<!-- some image with alt text -->
+<!-- an image with alt text -->
 
-![some alt text::img-large img-shadow](someOtherImageUrl)
+![text describing the image::img-large img-shadow](someOtherImageUrl)
 ```
 
-#### Article thumbnail image
+#### Featured image
 
-Blog articles can specify a thumbnail image which will be displayed to the left of the card on the home page. Thumbnails should be square (height:width ratio of `1:1`) and a suggested dimension of 150 x 150 pixels. They will be specified using a frontmatter variable as follows:
-
-```yaml
-...
-thumbnail: "images/2020-04/capv-overview/thumbnail.jpg"
-...
-```
-
-The thumbnail image will take precedence on opengraph share tags if the [shareImage](#share-image) parameter is not specified.
-
-#### Article featured image
-
-Each article can specify an image that appears at the top of the content. When sharing the blog article on social media, if a thumbnail is not specified, the featured image will be used as a fallback on opengraph share tags.
+Each article can specify an image that appears at the top of the content.
 
 ```yaml
 ...
@@ -372,19 +533,50 @@ featureImage: "images/2020-04/capv-overview/featured.jpg"
 ...
 ```
 
-#### Share Image
+The path for the featured image is relative to the `static` directory if not using [Page Bundles](#organizing-page-resources), and relative to the post's own directory if using them.
 
-Sometimes, you want to explicitly set the image that will be used in the preview when you share an article on social media. You can do so in the front matter.
+Two other frontmatter settings allow you to set alt text for the featured image and an optional caption.
 
 ```yaml
 ...
-shareImage = "images/theImageToBeUsedOnShare.png"
+featureImageAlt: 'Text describing the featured image' # Alternative text for featured image.
+featureImageCap: 'A caption appearing below the image.' # Caption (optional).
 ...
 ```
 
-Note that if a share image is not specified, the order of precedence that will be used to determine which image applies is `thumbnail` => `featureImage` => `fallbackOgImage`. When sharing a link to the home page address of the site (as opposed to a specific article), the `fallbackOgImage` will be used.
+Unless specified using `featureImageCap`, a caption will not be generated for the featured image.
 
-#### Align logo
+#### Thumbnail image
+
+Each article can specify a thumbnail image which will be displayed on the left of the article's card on the home page and in lists of articles.
+
+```yaml
+...
+thumbnail: "images/2020-04/capv-overview/thumbnail.jpg"
+...
+```
+
+Thumbnails look best when square (height:width ratio of 1:1) and at least 150x150 pixels.
+
+The path for the thumbnail image is relative to the `static` directory if not using [Page Bundles](#organizing-page-resources), and relative to the post's own directory if using them.
+
+#### Share image
+
+Each article can specify a share image which will used when the article is shared on social media.
+
+```yaml
+...
+shareImage: "images/theImageToBeUsedOnShare.png"
+...
+```
+
+If a share image is not specified, the order of precedence that will be used to determine which image applies is `thumbnail` => `featureImage` => `fallbackOgImage`. That is, if no thumbnail is specified, the featured image will be used; if neither is specified, the fallback image will be used.
+
+When sharing a link to the home page of the site (as opposed to a specific article), the `fallbackOgImage` will be used.
+
+The path for the share image is relative to the `static` directory if not using [Page Bundles](#organizing-page-resources), and relative to the post's own directory if using them.
+
+#### Logo alignment
 
 You can left align or center your site's logo.
 
@@ -434,6 +626,20 @@ If `codeMaxLines` is specified both in `config.toml` and in the article frontmat
 
 If `codeMaxLines` is not specified anywhere, an internal default value of `100` will be assumed.
 
+#### Line Highlighting
+
+It is possible to highlight specific lines in a code block by applying `{hl_lines=[7]}` after the fence and language. For example, the below snippet will highlight lines 7 and 8 in the code block to which it is applied.
+
+```
+```yaml {hl_lines=[7,8]}
+```
+
+Ranges are also supported by quoting the range inside the braces.
+
+```
+```yaml {hl_lines=["7-18"]}
+```
+
 ### Table of contents
 
 Each article can optionally have a table of contents (TOC) generated for it based on top-level links. By configuring the `toc` parameter in the article frontmatter and setting it to `true`, a TOC will be generated only for that article. The TOC will then render under the featured image.
@@ -441,6 +647,12 @@ Each article can optionally have a table of contents (TOC) generated for it base
 #### Table of contents (TOC) example
 
 ![Article table of contents](https://github.com/chipzoller/hugo-clarity/blob/master/images/article-toc.png)
+
+### Pinning featured posts
+
+This allows you to show the featured posts at the top of the post list.
+
+Use the [site configuration option](#global-parameters) `pinFeatured` to enable/disable it, and the option `numberOfPinnedPosts` to control how many posts to be pinned.
 
 ### Custom CSS and JS
 
@@ -454,7 +666,7 @@ Going by the above 👆🏻 reason, we recommend adding custom CSS and JS via th
     This file should only be used to override everything else except sass & css variables.
 3. [`custom.js`](https://github.com/chipzoller/hugo-clarity/blob/master/assets/js/custom.js).
 
-> __Pro Tip__: Ensure that your changes are git trackable by creating these  files outside the theme directory. That is, at the root level of your site's directory. see tree below
+> __Pro Tip__: Ensure that your changes are git trackable by creating these files outside the theme directory. That is, at the root level of your site's directory. See tree below.
 
 ```
 ├── yourSite
@@ -466,8 +678,16 @@ Going by the above 👆🏻 reason, we recommend adding custom CSS and JS via th
 │   │   └── sass
 │   │       ├── _custom.sass
 │   │       └── _override.sass
-├── config.toml
-│   ├── configTaxo.toml
+│   ├── config
+│   │   └── _default
+│   │       ├── config.toml
+│   │       ├── configTaxo.toml
+│   │       ├── languages.toml
+│   │       ├── markup.toml
+│   │       ├── menus
+│   │       │   ├── menu.en.toml
+│   │       │   └── menu.pt.toml
+│   │       └── params.toml
 │   ├── content
 │   │   ├── _index.md
 ```
@@ -481,6 +701,34 @@ customCSS = ["css/custom.css"] # Include custom CSS files
 customJS = ["js/custom.js"] # Include custom JS files
 ...
 ```
+
+### Notices
+
+This theme includes functionality to display some "hightlight blocks" - called "notices" using a shortcode.
+
+For example, see the shortcode markup below will render as a notice:
+
+```
+{{% notice note "Note Title" */%}}
+This will be the content of the note.
+{{% /notice %}}
+```
+
+For more examples see the "Notices" page in the `exampleSite`.
+
+### Site Disclaimer
+
+ The theme includes the ability to put a Disclaimer on your website (e.g. "My views are my own and not my employer's").  Currently, the disclaimer displays in the sidebar under the author information.   You can enable and customize it as follows:
+
+ * Uncomment the `sidebardisclaimer` parameter in `config/_default/params.toml`.
+ * Uncomment and edit the `disclaimerText` parameter in `config/_default/params.toml`.
+ * Add and modify an override for the `div.sidebardisclaimer` selector in `assets/saas/_custom.sass`.
+
+ ```CSS
+div.sidebardisclaimer{padding: 0px 10px 15px 10px;margin: 20px 5px 20px 5px;border: 1px solid #eee;border-left-width: 10px;border-right-width: 10px;border-radius: 5px 5px 5px 5px;border-left-color: orange;border-right-color: orange;border-top-color:orange;border-bottom-color:orange}
+ ```
+
+ > The code for the sidebar disclaimer text is in `layouts/partials/sidebar.html`.  The default color scheme displays in both light and dark mode.   Additionally, the styling has been placed into `_custom.sass` so that it's easily editable with beginner's understanding of CSS properties and easier to find.
 
 ### Forcing light or dark mode
 
@@ -517,15 +765,17 @@ Things to consider in multilingual:
   Check for missing translations using `hugo server --i18n-warnings`
 * **taxonomy** names (tags, categories, etc...) are translated in [i18n](./i18n/) as well (translate the key)
 * **menus** are translated manually in the config files [config/_default/menus/menu.xx.toml](./exampleSite/config/_default/menus/)
-* **menu's languages list** are semi-hardcoded. You may chose another text for the menu entry with [languageMenuName](./exampleSite/config.toml). Please, do better and create a PR for that.
+* **menu's languages list** are semi-hardcoded. You may chose another text for the menu entry with [languageMenuName](./exampleSite/config/config.toml). Please, do better and create a PR for that.
 * **content** must be translated individually. Read the [official documentation](https://gohugo.io/content-management/multilingual/#translate-your-content) for information on how to do it.
 
 **note:** if you do NOT want any translations (thus removing the translations menu entry), then you must not have any translations.
 In the exampleSite that's as easy as removing the extra translations from the `config/_default/...` or executing this one-liner:
 
+```sh
+sed '/^\[pt]$/,$d' -i config/_default/languages.toml && rm config/_default/menus/menu.pt.toml
 ```
-sed '/^\[pt]$/,$d' -i config/_default/languages.toml   &&   rm config/_default/menus/menu.pt.toml
-```
+
+To change the values of translatable text, such as `read_more` or `copyright`, edit the values in the language file you are using in the [`i18n`](i18n) directory. If you have no such directory, copy the one inside the theme to your root Hugo directory.
 
 ### Hooks
 
@@ -545,11 +795,31 @@ layouts/partials/hooks/body-end.html
 
 ### Comments
 
-Clarity supports Hugo built-in Disqus partial. You can enable Disqus simply by setting [`disqusShortname`](https://gohugo.io/templates/internal/#configure-disqus) in your configuration file.
+Clarity supports Hugo built-in Disqus partial. You can enable Disqus simply by setting [`disqusShortname`](https://gohugo.io/templates/internal/#configure-disqus) in your [configuration file](https://github.com/chipzoller/hugo-clarity/blob/88f6cf4ac37c12990983b92d19842524555c23d3/exampleSite/config/config.toml#L11).
 
-> ⚠️ `disqusShortname` should be placed at the root level.
+You can also override [layouts/partials/comments.html](https://github.com/chipzoller/hugo-clarity/blob/master/layouts/partials/comments.html) to take advantage of [disqus comments Alternatives](https://gohugo.io/content-management/comments/#comments-alternatives) for details.
 
-You can also create a file named `layouts/partials/comments.html` for customizing the comments. Checkout [Comments Alternatives](https://gohugo.io/content-management/comments/#comments-alternatives) for details.
+> Please leave `#disqusShortname = ""` commented out if you decide to use other comments tools
+
+You can disable them site-wide by setting `comments = false` under `[params]` from config.toml file and vice versa. Omitting that setting will default to comments will be enabled.
+
+You can override these setting from each post individually. For example, you may want to disable/enable comments on specific posts. Use the same syntax used on the config.toml file.
+
+> please use `comments` and not `comment`
+
+#### Utterances Commenting Support
+
+ If you wish use [Utterances](https://github.com/utterance/utterances) comments on your site, you'll need to perform the following:
+
+ * Ensure you have a GitHub public repository, which you've granted permissions to the [Utterances GitHub App](https://github.com/apps/utterances).
+ * Comment out the line for `disqusShortname = ""` in the `/config/_default/config.toml` file.
+ * Set `comments = true` in the `/config/_default/params.toml` file.
+ * Configure the utterances parameters in the `/config/_default/params.toml` file.
+
+ Utterances is loaded in the `comments.html` partial by referring to the `utterances.html` partial.   Since `single.html` layout loads comments if comments are enabled, you must ensure *both* the `comments` and `utterances` parameters are configured.
+
+
+
 
 ### Math notation
 
@@ -579,7 +849,7 @@ Then add the corresponding line as its [README](https://github.com/KaTeX/KaTeX/t
 
 The added line should be _before_ `auto-render.min.js` and _after_ `katex.min.js`.
 
-#### If you want MathJax instead
+#### MathJax
 
 The new version of MathJax has [comparable performance](https://www.intmath.com/cg5/katex-mathjax-comparison.php?processor=MathJax3) to KaTeX and better support for TeX commands.
 
@@ -591,3 +861,92 @@ If you prefer MathJax, create a blank `[site]/layouts/partials/math.html` and ad
 ```
 
 This file will [take precedence over](https://gohugobrasil.netlify.app/themes/customizing/) the one Clarity provides and the site will load MathJax instead of KaTeX.
+
+### Related Content
+
+Related content within a `series` taxonomy can be shown at the end of a piece of content, or optionally on the sidebar above the Related Content section.
+
+The site configuration option `showRelatedInArticle` controls if this option is enabled. The same configuration option can be used in a posts frontmatter to disable the feature (but the site configuration overrides the per-page option).
+
+Likewise, the site configuration option `showRelatedInSidebar` controls if related content is shown on the sidebar. There is no corresponding option within a post to disable this.
+
+### Maps
+
+#### Creating and including a map
+
+First create a map for free on https://umap.openstreetmap.fr/en/. Then include this map by using the `openstreetmap` shortcode, e.g. `{{<openstreetmap mapName="demo-map_1" >}}`
+
+#### Options
+
+The only required parameter is `mapName`. All other parameters are completely optional.
+
+Available parameters are:
+- `coordX` (default `auto`)
+- `coordY` (default `auto`)
+- `scale`  (default `auto`)
+- `scaleControl` (default `true`)
+- `miniMap` (default `false`)
+- `scrollWheelZoom` (default `true`)
+- `zoomControl` (default `true`)
+- `allowEdit` (default `false`)
+- `moreControl` (default `true`)
+- `searchControl` (default `true`)
+- `tilelayersControl` (default `null`)
+- `embedControl` (default `null`)
+- `datalayersControl` (default `true`)
+- `onLoadPanel` (default `none`)
+- `captionBar` (default `false`)
+
+### Search
+
+Search is currently a BETA feature. Ensure you have these settings inside your configuration files:
+
+```toml
+# config/_default/config.toml
+[outputs]
+  home = ["HTML", "RSS","JSON"]
+```
+
+```toml
+# config/_default/params.toml
+enableSearch = true
+```
+
+Next add the [search.md file from the exampleSite](https://raw.githubusercontent.com/chipzoller/hugo-clarity/master/exampleSite/content/search.md) and add it to your content folder. This is not necessary if you recently created a site based on the example site and already have the file.
+
+[Compose](https://github.com/onweru/compose), from which this feature is derived, implements `fuse.js` to enable search functionality. At the time of this writing, search on this theme takes either of the following forms:
+
+1. __Passive search__
+
+    This occurs only when the user loads the search page i.e `/search/`. They can directly navigate to that url. Alternatively, the user can type the search query on the search field and hit enter. They will be redirected to the search page which will contain matched results if any.
+
+    Currently, this only works on the default language. Support for multilingual passive search is coming soon.
+
+2. __Live search__
+
+    This behavior will be obvious as the user types a search query on the search field. All valid search queries will yield a list of quick links or a simple "no matches found". Else, the user will be prompted to continue typing.
+
+    Live search works even for multilingual sites.
+
+    For Chinese-like languages, it may or may not work.
+
+__Search Scope__
+
+- Searching within a section will yield results from that section.
+
+    For example, if you have 3 sections in your content i.e `blog`, `docs` & `examples`, searching in the `docs` section will only produce results for that section.
+- Searching outside a section will search the entire site.
+
+     For example, with the above setup, searching from the homepage will produce results from the entire site.
+
+## Contributing
+
+Please read our [contribution guidelines](CONTRIBUTING.md), and thank you for being involved!
+
+## Code of conduct
+
+Hugo Clarity has a [code of conduct](CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
+
+## License
+
+Hugo Clarity is open-sourced under the [MIT license](https://github.com/chipzoller/hugo-clarity/blob/master/LICENSE.md).
