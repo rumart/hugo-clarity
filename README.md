@@ -1,4 +1,4 @@
-# Hugo Clarity
+# Hugo Clarity Theme
 
 A technology-minded theme for Hugo based on VMware's open-source [Clarity Design System](https://clarity.design/) featuring rich code support, dark/light mode, mobile support, and much more. See [a live demo at __neonmirrors.net__](https://neonmirrors.net/).
 
@@ -156,6 +156,10 @@ hugo mod init <sitename>
 ```bash
 wget -O - https://github.com/chipzoller/hugo-clarity/archive/master.tar.gz | tar xz && cp -a hugo-clarity-master/exampleSite/* . && rm -rf hugo-clarity-master && rm -f config.toml
 ```
+If you are using PowerShell, paste this instead:
+```bash
+wget -O - https://github.com/chipzoller/hugo-clarity/archive/master.tar.gz | tar xz -and cp -a hugo-clarity-master/exampleSite/* . -and rm -rf hugo-clarity-master -and rm -f config.toml
+```
 If you do already have a site and don't want to risk overwriting anything, we suggest copying the contents of [`config`](exampleSite/config/) over, as well as replacing your `archetypes/post.md` (if it exists) with [Hugo Clarity's](exampleSite/archetypes/post.md). Then migrate any necessary settings from `<sitename>/config.toml` to `<sitename>/config/_default/config.toml` and remove the original `<sitename>/config.toml` file.
 
 4. Open `<sitename>/config/_default/config.toml` and change `theme = "hugo-clarity"` to `theme = ["github.com/chipzoller/hugo-clarity"]`
@@ -213,6 +217,7 @@ These options set global values that some pages or all pages in the site use by 
 | twitter                    | string                      | no                  |
 | largeTwitterCard           | boolean                     | no                  |
 | ga_analytics               | string                      | no                  |
+| google_tag_manager_id      | string                      | no                  |
 | baidu_analytics            | string                      | no                  |
 | plausible_analytics        | boolean                     | no                  |
 | matomo_analytics           | boolean                     | no                  |
@@ -307,7 +312,7 @@ If you wish to globally use a [large Twitter summary card](https://developer.twi
 
 ### Web site analytics
 
-If using Google Analytics, configure the `ga_analytics` global parameter in your site with your ID.
+If using Google Analytics, configure the `ga_analytics` global parameter in your site with your ID. You can opt to set a google tag manager using `google_tag_manager_id`.
 
 If using Baidu Analytics, configure the `baidu_analytics` global parameter in your site with your ID.
 
@@ -670,26 +675,26 @@ Going by the above 👆🏻 reason, we recommend adding custom CSS and JS via th
 
 ```
 ├── yourSite
-│   ├── archetypes
-│   │   └── post.md
-│   ├── assets
-│   │   ├── js
-│   │   │   └── custom.js
-│   │   └── sass
-│   │       ├── _custom.sass
-│   │       └── _override.sass
-│   ├── config
-│   │   └── _default
-│   │       ├── config.toml
-│   │       ├── configTaxo.toml
-│   │       ├── languages.toml
-│   │       ├── markup.toml
-│   │       ├── menus
-│   │       │   ├── menu.en.toml
-│   │       │   └── menu.pt.toml
-│   │       └── params.toml
-│   ├── content
-│   │   ├── _index.md
+│   ├── archetypes
+│   │   └── post.md
+│   ├── assets
+│   │   ├── js
+│   │   │   └── custom.js
+│   │   └── sass
+│   │       ├── _custom.sass
+│   │       └── _override.sass
+│   ├── config
+│   │   └── _default
+│   │       ├── config.toml
+│   │       ├── configTaxo.toml
+│   │       ├── languages.toml
+│   │       ├── markup.toml
+│   │       ├── menus
+│   │       │   ├── menu.en.toml
+│   │       │   └── menu.pt.toml
+│   │       └── params.toml
+│   ├── content
+│   │   ├── _index.md
 ```
 
 However, sometimes you may need to load additional style or script files. In such cases, you can add custom `.css` and `.js` files by listing them in the `config.toml` file (see the snippet below). Similar to images, these paths should be relative to the `static` directory.
@@ -809,14 +814,15 @@ You can override these setting from each post individually. For example, you may
 
 #### Utterances Commenting Support
 
- If you wish use [Utterances](https://github.com/utterance/utterances) comments on your site, you'll need to perform the following:
+If you wish use [Utterances](https://github.com/utterance/utterances) comments on your site, you'll need to perform the following:
 
  * Ensure you have a GitHub public repository, which you've granted permissions to the [Utterances GitHub App](https://github.com/apps/utterances).
  * Comment out the line for `disqusShortname = ""` in the `/config/_default/config.toml` file.
  * Set `comments = true` in the `/config/_default/params.toml` file.
  * Configure the utterances parameters in the `/config/_default/params.toml` file.
+ * Optionally, you can choose a label that will be assigned to all issues created by Utterances. The label must exist in your Github repository, as Utterances cannot attach labels that do not exist. Configure `utterancesLabel` parameter in `/config/_default/params.toml` file, after you have added a label to your Github repository Issues labels. Labels are case sensitive and support Emoji in label names. ✨💬✨
 
- Utterances is loaded in the `comments.html` partial by referring to the `utterances.html` partial.   Since `single.html` layout loads comments if comments are enabled, you must ensure *both* the `comments` and `utterances` parameters are configured.
+Utterances is loaded in the `comments.html` partial by referring to the `utterances.html` partial.   Since `single.html` layout loads comments if comments are enabled, you must ensure *both* the `comments` and `utterances` parameters are configured.
 
 
 
